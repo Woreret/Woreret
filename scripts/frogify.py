@@ -8,7 +8,7 @@ if not svg_path.exists():
 
 svg = svg_path.read_text(encoding="utf-8")
 
-# 1. Прячем все сегменты змейки
+
 svg, hidden_count = re.subn(
     r"\.s\{",
     ".s{opacity:0;",
@@ -19,7 +19,7 @@ svg, hidden_count = re.subn(
 if hidden_count == 0:
     raise RuntimeError("Could not find .s CSS rule")
 
-# 2. Возвращаем голову змейки
+
 svg, head_css_count = re.subn(
     r"\.s\.s0\{",
     ".s.s0{opacity:1;",
@@ -30,18 +30,32 @@ svg, head_css_count = re.subn(
 if head_css_count == 0:
     raise RuntimeError("Could not find .s.s0 CSS rule")
 
-# 3. Финальная жаба
+
 frog_svg = r'''
 <g class="frog s s0">
 
   <!-- crown -->
-  <path
-    d="M1 4.8 L2.8 1.2 L5 4.1 L7 0.7 L9 4.1 L11.2 1.2 L13 4.8 Z"
-    fill="#e0bf3a"
-    stroke="#8f7617"
-    stroke-width="0.95"
-    stroke-linejoin="round"
-  />
+  <g transform="translate(0,-3)">
+    <path
+      d="M0.5 5
+         L2.5 0.8
+         L5 4
+         L7 0
+         L9 4
+         L11.5 0.8
+         L13.5 5
+         Z"
+      fill="#ffd84d"
+      stroke="#5c4700"
+      stroke-width="1.2"
+      stroke-linejoin="round"
+    />
+
+    <!-- crown jewels -->
+    <circle cx="2.5" cy="1.2" r="0.65" fill="#2f6fff"/>
+    <circle cx="7" cy="0.4" r="0.65" fill="#2f6fff"/>
+    <circle cx="11.5" cy="1.2" r="0.65" fill="#2f6fff"/>
+  </g>
 
   <!-- body -->
   <ellipse
@@ -110,7 +124,6 @@ frog_svg = r'''
 </g>
 '''
 
-# 4. Заменяем голову змейки
 svg, frog_count = re.subn(
     r'<rect class="s s0"[^>]*/>',
     frog_svg,
