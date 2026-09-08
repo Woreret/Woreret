@@ -14,13 +14,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Generate the swamp
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate contribution swamp
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: Woreret
 
           outputs: |
-            dist/swamp.svg?color_snake=#9ACD32&color_dots=#0d1117,#162b1c,#245c2a,#3d8f32,#79c94b
+            dist/swamp.svg?color_snake=#79c94b&color_dots=#0d1117,#162b1c,#245c2a,#3d8f32,#79c94b
+
+      - name: Turn snake into frog
+        run: python scripts/frogify.py
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4
