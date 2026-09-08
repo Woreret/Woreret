@@ -8,6 +8,7 @@ if not svg_path.exists():
 
 svg = svg_path.read_text(encoding="utf-8")
 
+# 1. Прячем все сегменты змейки
 svg, hidden_count = re.subn(
     r"\.s\{",
     ".s{opacity:0;",
@@ -18,6 +19,7 @@ svg, hidden_count = re.subn(
 if hidden_count == 0:
     raise RuntimeError("Could not find .s CSS rule")
 
+# 2. Возвращаем голову змейки
 svg, head_css_count = re.subn(
     r"\.s\.s0\{",
     ".s.s0{opacity:1;",
@@ -28,86 +30,87 @@ svg, head_css_count = re.subn(
 if head_css_count == 0:
     raise RuntimeError("Could not find .s.s0 CSS rule")
 
-# 3. Новая жаба
+# 3. Финальная жаба
 frog_svg = r'''
 <g class="frog s s0">
 
   <!-- crown -->
   <path
-    d="M1.5 4.2 L3 1.4 L5.2 3.7 L7 0.8 L8.8 3.7 L11 1.4 L12.5 4.2 Z"
-    fill="#d8b932"
+    d="M1 4.8 L2.8 1.2 L5 4.1 L7 0.7 L9 4.1 L11.2 1.2 L13 4.8 Z"
+    fill="#e0bf3a"
     stroke="#8f7617"
-    stroke-width="0.8"
+    stroke-width="0.95"
     stroke-linejoin="round"
   />
 
   <!-- body -->
   <ellipse
     cx="7"
-    cy="9"
-    rx="9"
-    ry="6.8"
-    fill="#56a03d"
-    stroke="#244d28"
-    stroke-width="1.3"
+    cy="10.2"
+    rx="10.2"
+    ry="7.5"
+    fill="#5aaa3d"
+    stroke="#234827"
+    stroke-width="1.45"
   />
 
   <!-- eye bumps -->
-  <circle cx="2.2" cy="5.6" r="3.6" fill="#7dc457"/>
-  <circle cx="11.8" cy="5.6" r="3.6" fill="#7dc457"/>
+  <circle cx="1.9" cy="6.3" r="4.0" fill="#85cf5f"/>
+  <circle cx="12.1" cy="6.3" r="4.0" fill="#85cf5f"/>
 
   <!-- pupils -->
-  <circle cx="2.2" cy="5.6" r="1.55" fill="#111111"/>
-  <circle cx="11.8" cy="5.6" r="1.55" fill="#111111"/>
+  <circle cx="1.9" cy="6.3" r="1.7" fill="#111111"/>
+  <circle cx="12.1" cy="6.3" r="1.7" fill="#111111"/>
 
   <!-- highlights -->
-  <circle cx="1.7" cy="5.1" r="0.42" fill="#f3f4d7"/>
-  <circle cx="11.3" cy="5.1" r="0.42" fill="#f3f4d7"/>
+  <circle cx="1.3" cy="5.7" r="0.45" fill="#f6f7db"/>
+  <circle cx="11.5" cy="5.7" r="0.45" fill="#f6f7db"/>
 
   <!-- face -->
   <ellipse
     cx="7"
-    cy="10.1"
-    rx="5.9"
-    ry="3.9"
-    fill="#a4d179"
+    cy="11.5"
+    rx="6.5"
+    ry="4.4"
+    fill="#aedc84"
     opacity="0.98"
   />
 
   <!-- nostrils -->
-  <circle cx="5.2" cy="9.1" r="0.42" fill="#294529"/>
-  <circle cx="8.8" cy="9.1" r="0.42" fill="#294529"/>
+  <circle cx="5.0" cy="10.2" r="0.45" fill="#294529"/>
+  <circle cx="9.0" cy="10.2" r="0.45" fill="#294529"/>
 
   <!-- smile -->
   <path
-    d="M4.2 10.9 Q7 13.1 9.8 10.9"
-    stroke="#1d2f1b"
-    stroke-width="1.05"
+    d="M4.2 12.2 Q7 14.7 9.8 12.2"
+    stroke="#1b2c1a"
+    stroke-width="1.15"
     fill="none"
     stroke-linecap="round"
   />
 
-  <!-- tiny cheeks -->
-  <circle cx="4.1" cy="10.7" r="0.28" fill="#6fa94d" opacity="0.85"/>
-  <circle cx="9.9" cy="10.7" r="0.28" fill="#6fa94d" opacity="0.85"/>
+  <!-- cheeks -->
+  <circle cx="4.1" cy="12.0" r="0.32" fill="#72ae50" opacity="0.9"/>
+  <circle cx="9.9" cy="12.0" r="0.32" fill="#72ae50" opacity="0.9"/>
 
   <!-- front feet -->
   <path
-    d="M3.2 14.2 L1.4 15.8"
+    d="M3.2 16.0 L1.2 17.8"
     stroke="#3c7d31"
-    stroke-width="1.7"
+    stroke-width="1.9"
     stroke-linecap="round"
   />
   <path
-    d="M10.8 14.2 L12.6 15.8"
+    d="M10.8 16.0 L12.8 17.8"
     stroke="#3c7d31"
-    stroke-width="1.7"
+    stroke-width="1.9"
     stroke-linecap="round"
   />
 
 </g>
 '''
 
+# 4. Заменяем голову змейки
 svg, frog_count = re.subn(
     r'<rect class="s s0"[^>]*/>',
     frog_svg,
@@ -120,4 +123,4 @@ if frog_count == 0:
 
 svg_path.write_text(svg, encoding="utf-8")
 
-print("🐸 Frog v4 generated")
+print("🐸 Frog v5 generated")
