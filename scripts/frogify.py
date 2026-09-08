@@ -32,7 +32,9 @@ if head_css_count == 0:
 
 
 frog_svg = r'''
-<!-- body -->
+<g class="frog s s0">
+
+  <!-- body -->
   <ellipse
     cx="7"
     cy="10.2"
@@ -96,7 +98,7 @@ frog_svg = r'''
     stroke-linecap="round"
   />
 
-  <!-- Crown is drawn last, above the face. -->
+  <!-- crown -->
   <g class="frog-crown">
     <path
       d="M1 1.5
@@ -147,4 +149,4 @@ if frog_count == 0:
 
 svg_path.write_text(svg, encoding="utf-8")
 
-print("🐸 Frog v5 generated")
+print("🐸 Frog with crown generated")
