@@ -1,0 +1,31 @@
+name: Generate Swamp
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate the swamp
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: Woreret
+
+          outputs: |
+            dist/swamp.svg?color_snake=#9ACD32&color_dots=#0d1117,#162b1c,#245c2a,#3d8f32,#79c94b
+
+      - name: Push to output branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

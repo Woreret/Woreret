@@ -1,5 +1,13 @@
 <p align="center">
-  <img src="./assets/banner.png" width="100%" alt="Woreret">
+  <img
+    src="https://raw.githubusercontent.com/Woreret/Woreret/output/swamp.svg"
+    width="100%"
+    alt="The Swamp"
+  />
+</p>
+
+<p align="center">
+  <i>coding from the swamp 🐸</i>
 </p>
 
 ## `$ whoami`
