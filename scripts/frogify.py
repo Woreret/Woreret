@@ -32,32 +32,7 @@ if head_css_count == 0:
 
 
 frog_svg = r'''
-<g class="frog s s0">
-
-  <!-- crown -->
-  <g transform="translate(0,-3)">
-    <path
-      d="M0.5 5
-         L2.5 0.8
-         L5 4
-         L7 0
-         L9 4
-         L11.5 0.8
-         L13.5 5
-         Z"
-      fill="#ffd84d"
-      stroke="#5c4700"
-      stroke-width="1.2"
-      stroke-linejoin="round"
-    />
-
-    <!-- crown jewels -->
-    <circle cx="2.5" cy="1.2" r="0.65" fill="#2f6fff"/>
-    <circle cx="7" cy="0.4" r="0.65" fill="#2f6fff"/>
-    <circle cx="11.5" cy="1.2" r="0.65" fill="#2f6fff"/>
-  </g>
-
-  <!-- body -->
+<!-- body -->
   <ellipse
     cx="7"
     cy="10.2"
@@ -69,8 +44,8 @@ frog_svg = r'''
   />
 
   <!-- eye bumps -->
-  <circle cx="1.9" cy="6.3" r="4.0" fill="#85cf5f"/>
-  <circle cx="12.1" cy="6.3" r="4.0" fill="#85cf5f"/>
+  <circle cx="1.9" cy="6.3" r="4" fill="#85cf5f"/>
+  <circle cx="12.1" cy="6.3" r="4" fill="#85cf5f"/>
 
   <!-- pupils -->
   <circle cx="1.9" cy="6.3" r="1.7" fill="#111111"/>
@@ -91,8 +66,8 @@ frog_svg = r'''
   />
 
   <!-- nostrils -->
-  <circle cx="5.0" cy="10.2" r="0.45" fill="#294529"/>
-  <circle cx="9.0" cy="10.2" r="0.45" fill="#294529"/>
+  <circle cx="5" cy="10.2" r="0.45" fill="#294529"/>
+  <circle cx="9" cy="10.2" r="0.45" fill="#294529"/>
 
   <!-- smile -->
   <path
@@ -104,22 +79,58 @@ frog_svg = r'''
   />
 
   <!-- cheeks -->
-  <circle cx="4.1" cy="12.0" r="0.32" fill="#72ae50" opacity="0.9"/>
-  <circle cx="9.9" cy="12.0" r="0.32" fill="#72ae50" opacity="0.9"/>
+  <circle cx="4.1" cy="12" r="0.32" fill="#72ae50"/>
+  <circle cx="9.9" cy="12" r="0.32" fill="#72ae50"/>
 
   <!-- front feet -->
   <path
-    d="M3.2 16.0 L1.2 17.8"
+    d="M3.2 16 L1.2 17.8"
     stroke="#3c7d31"
     stroke-width="1.9"
     stroke-linecap="round"
   />
   <path
-    d="M10.8 16.0 L12.8 17.8"
+    d="M10.8 16 L12.8 17.8"
     stroke="#3c7d31"
     stroke-width="1.9"
     stroke-linecap="round"
   />
+
+  <!-- Crown is drawn last, above the face. -->
+  <g class="frog-crown">
+    <path
+      d="M1 1.5
+         L4 3.8
+         L7 0.7
+         L10 3.8
+         L13 1.5
+         L11.3 6
+         L2.7 6
+         Z"
+      fill="#ffd84d"
+      stroke="#785000"
+      stroke-width="0.8"
+      stroke-linejoin="round"
+    />
+
+    <!-- bright bottom band -->
+    <path
+      d="M3.2 5.2 H10.8"
+      stroke="#fff2a1"
+      stroke-width="0.8"
+      stroke-linecap="round"
+    />
+
+    <!-- central jewel -->
+    <circle
+      cx="7"
+      cy="3.8"
+      r="0.9"
+      fill="#e94343"
+      stroke="#963020"
+      stroke-width="0.3"
+    />
+  </g>
 
 </g>
 '''
