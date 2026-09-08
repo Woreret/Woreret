@@ -1,13 +1,7 @@
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/Woreret/Woreret/output/swamp.svg"
-    width="100%"
-    alt="The Swamp"
-  />
-</p>
+
 
 <p align="center">
-  <i>coding from the swamp 🐸</i>
+  <img src="./assets/Banner.png" width="100%" alt="Woreret">
 </p>
 
 ## `$ whoami`
@@ -51,5 +45,9 @@ system       Arch Linux · Windows
 </p>
 
 <p align="center">
-  <i>coding from the swamp 🐸</i>
+  <img
+    src="https://raw.githubusercontent.com/Woreret/Woreret/output/swamp.svg"
+    width="100%"
+    alt="The Swamp"
+  />
 </p>
