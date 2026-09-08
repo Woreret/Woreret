@@ -1,5 +1,3 @@
-
-
 <p align="center">
   <img src="./assets/Banner.png" width="100%" alt="Woreret">
 </p>
@@ -35,14 +33,6 @@ system       Arch Linux · Windows
 ```
 
 ## 🐸 The swamp
-
-<p align="center">
-  <img
-    src="https://github-readme-activity-graph.vercel.app/graph?username=Woreret&theme=github-compact&hide_border=true"
-    width="100%"
-    alt="GitHub activity"
-  >
-</p>
 
 <p align="center">
   <img
